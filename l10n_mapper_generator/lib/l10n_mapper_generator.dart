@@ -23,7 +23,7 @@ class L10nMapperGenerator extends Generator {
   final String? message;
 
   /// only items from the mapperWhitelist will be included in the map
-   final List<String> mapperWhitelist;
+  final List<String> mapperWhitelist;
 
   L10nMapperGenerator({
     required this.l10n, 
