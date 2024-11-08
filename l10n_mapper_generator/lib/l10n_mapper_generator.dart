@@ -40,6 +40,7 @@ class L10nMapperGenerator extends Generator {
     for (var classElement in library.classes.where((c) => c.isAbstract)) {
       if (classElement.displayName == 'AppLocalizations') {
         final className = classElement.displayName;
+        final localizationPath = classElement.source.uri;
         final mapperName = '${classElement.displayName}Mapper';
         final extensionName = '${classElement.displayName}Extension';
 
@@ -47,7 +48,7 @@ class L10nMapperGenerator extends Generator {
         final shouldGenerateExtension = l10n || locale || parseL10n;
 
         // import
-        buffer.writeln("import 'app_localizations.dart';");
+        buffer.writeln("import '$localizationPath';");
         buffer.writeln("import 'package:flutter/widgets.dart';");
 
         // generate extension
